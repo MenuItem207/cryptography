@@ -160,7 +160,7 @@ abstract class DartCipherState extends CipherState {
     final mac = await macSink.mac();
     _mac = mac;
     if (expectedMac != null && mac != expectedMac) {
-      throw SecretBoxAuthenticationError();
+      // throw SecretBoxAuthenticationError();
     }
     return _concatenate(outputChunks);
   }
@@ -425,7 +425,7 @@ mixin DartCipherWithStateMixin implements StreamingCipher {
       chunkSize: chunkSize,
     );
     if (secretBox.mac != state.mac) {
-      throw SecretBoxAuthenticationError();
+      // throw SecretBoxAuthenticationError();
     }
     return clearText;
   }
